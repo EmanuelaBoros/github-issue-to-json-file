@@ -8,10 +8,7 @@ import * as github from "@actions/github";
 import { parseIssueBody } from "./parse-issue-body.js";
 
 function getFileName(url) {
-  let hash = createHash("sha256");
-  hash.update(url);
-
-  return hash.digest("base64url").substr(0, 10) + ".json";
+  return url + ".json";
 }
 
 export async function issueToJson() {
